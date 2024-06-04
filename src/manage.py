@@ -26,6 +26,13 @@ def get_module_type(module: str) -> Any:
     return module_type[module]()
 
 
+def get_module_from_object(object: Any, default: str) -> str:
+    for module in MODULES:
+        if is_module_dtype(object, module):
+            return module
+    return default
+
+
 def get_module_attr(module: str, attr: str) -> Any:
     """Returns the attr associated with the module"""
     return getattr(get_module(module), attr)
