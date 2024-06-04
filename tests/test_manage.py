@@ -1,6 +1,6 @@
 import torch
 
-from src.manage import (
+from dops.manage import (
     cast_to_dtype,
     get_module,
     get_module_attr,
