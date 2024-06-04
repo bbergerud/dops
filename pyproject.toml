@@ -3,7 +3,7 @@ name = "dops"
 version = "0.1.0"
 license = "MIT"
 description = "Python package for creating a common interface for using numpy, pytorch, etc."
-authors = ["Brandon Bererud <brandon.bergerud@gmail.com>"]
+authors = ["Brandon Bergerud <brandon.bergerud@gmail.com>"]
 readme = "readme.md"
 
 [tool.poetry.dependencies]
