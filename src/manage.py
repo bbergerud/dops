@@ -1,6 +1,6 @@
 import importlib
 from types import ModuleType
-from typing import Any, Union
+from typing import Any, Iterable, Union
 
 module_type = {
     "numpy": lambda: get_module_attr("numpy", "ndarray"),
@@ -31,6 +31,13 @@ def get_module_from_object(object: Any, default: str) -> str:
         if is_module_dtype(object, module):
             return module
     return default
+
+
+def get_module_from_objects(objects: Iterable[Any], default: str) -> str:
+    modules = set([get_module_from_object(object, default) for object in objects])
+    if len(modules) > 1:
+        raise ValueError(f"Multiple data types found: {modules}")
+    return modules.pop()
 
 
 def get_module_attr(module: str, attr: str) -> Any:
