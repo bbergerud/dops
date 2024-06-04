@@ -2,7 +2,7 @@ import math
 
 import torch
 
-from src import trig
+from dops import trig
 
 
 def test_angle():

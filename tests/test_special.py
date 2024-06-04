@@ -1,8 +1,6 @@
-import math
-
 import torch
 
-from src import special
+from dops import special
 
 
 def test_exp():
