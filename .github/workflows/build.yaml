@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [-f requirements.dev];
+          if [ -f requirements.dev ];
           then pip install -r requirements.dev;
           fi
       - name: Run tests
