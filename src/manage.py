@@ -1,6 +1,6 @@
 import importlib
 from types import ModuleType
-from typing import Any
+from typing import Any, Union
 
 module_type = {
     "numpy": lambda: get_module_attr("numpy", "ndarray"),
@@ -15,13 +15,13 @@ module_typecast = {
 
 def cast_to_dtype(object: Any, module: str, **kwargs):
     """Casts the object to the basic data type associated with the module"""
-    if not (module in module_typecast and is_module_installed(module)):
+    if not module in MODULES:
         raise ValueError(f"{module} is not a valid module")
     return module_typecast[module]()(object, **kwargs)
 
 
 def get_module_type(module: str) -> Any:
-    if not (module in module_type and is_module_installed(module)):
+    if not module in MODULES:
         raise Exception(f"{module} not a valid module")
     return module_type[module]()
 
@@ -49,6 +49,19 @@ def is_module_installed(module: str) -> bool:
 
 def is_module_dtype(object: Any, module: str) -> bool:
     """Determines if the object is an instance of the module"""
-    if not (module in module_type and is_module_installed(module)):
+    if not module in MODULES:
         raise Exception(f"{module} not a valid module")
     return isinstance(object, get_module_type(module))
+
+
+DEFAULT_MODULE = None
+MODULES = []
+for module, dtype in module_type.items():
+    if is_module_installed(module):
+        if DEFAULT_MODULE is None:
+            DEFAULT_MODULE = module
+        importlib.import_module(module)
+        MODULES.append(module)
+
+TYPEHINT_DTYPE = Union[tuple(get_module_type(module) for module in MODULES)]
+TYPEHINT_MODULE = Union[tuple(MODULES)]
