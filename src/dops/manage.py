@@ -1,4 +1,5 @@
 import importlib
+import importlib.util
 from types import ModuleType
 from typing import Any, Iterable, Union
 
