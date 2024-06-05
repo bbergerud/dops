@@ -6,11 +6,13 @@ from typing import Any, Iterable, Union
 MODULE_DTYPE = {
     "numpy": "ndarray",
     "torch": "Tensor",
+    "tensorflow": "Tensor",
 }
 
 MODULE_TYPECAST = {
     "numpy": "asarray",
     "torch": "as_tensor",
+    "tensorflow": "constant",
 }
 
 
