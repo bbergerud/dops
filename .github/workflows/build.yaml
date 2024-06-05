@@ -1,4 +1,4 @@
-name: data operations
+name: tenops (tensor operations)
 
 on:
   push:
@@ -79,3 +79,8 @@ jobs:
           user: __token__
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository-url: https://test.pypi.org/legacy/
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secret.PYPI_API_TOKEN }}
