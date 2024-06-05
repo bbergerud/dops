@@ -17,6 +17,7 @@ def arange(
     *args: int, default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
     d = defaultdict(lambda: "arange")
+    d["tensorflow"] = "range"
     return get_module_attr(default, d[default])(*args, **kwargs)
 
 
@@ -27,7 +28,7 @@ def cat(
     **kwargs
 ) -> TYPEHINT_DTYPE:
     d = defaultdict(lambda: "concatenate")
-    d.update({"torch": "cat"})
+    d.update({"torch": "cat", "tensorflow": "concat"})
 
     p = ParameterAlias(params={"axis": axis}, axis={"torch": "dim"})
     module = get_module_from_objects(x, default=default)
@@ -39,6 +40,7 @@ def empty_like(
     x: TYPEHINT_DTYPE, default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
     d = defaultdict(lambda: "empty_like")
+    d["tensorflow"] = "experimental.numpy.empty_like"
     module = get_module_from_object(x, default=default)
     x = cast_to_dtype(x, module=module)
     return get_module_attr(module, d[module])(x, **kwargs)
