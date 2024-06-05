@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Iterable
+from typing import Iterable, Union
 
 from .manage import (
     DEFAULT_MODULE,
@@ -47,7 +47,7 @@ def empty_like(
 
 
 def linspace(
-    *args: TYPEHINT_DTYPE, default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
+    *args: Union[int, float], default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
     d = defaultdict(lambda: "linspace")
     return get_module_attr(default, d[default])(*args, **kwargs)
