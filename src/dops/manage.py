@@ -13,7 +13,7 @@ MODULE_DTYPE = {
 MODULE_TYPECAST = {
     "numpy": "asarray",
     "torch": "as_tensor",
-    "tensorflow": "constant",
+    "tensorflow": "Variable",
 }
 
 
