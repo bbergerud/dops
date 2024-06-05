@@ -1,5 +1,5 @@
-from dops import grid, reduce
-from dops.manage import MODULE_TYPECAST, cast_to_dtype
+from tenops import grid, reduce
+from tenops.manage import MODULE_TYPECAST, cast_to_dtype
 
 
 def test_arange():

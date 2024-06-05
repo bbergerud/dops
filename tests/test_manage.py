@@ -1,6 +1,6 @@
 import torch
 
-from dops.manage import (
+from tenops.manage import (
     cast_to_dtype,
     get_module,
     get_module_attr,
