@@ -1,5 +1,6 @@
 import importlib
 import importlib.util
+from functools import reduce
 from types import ModuleType
 from typing import Any, Iterable, Union
 
@@ -21,6 +22,10 @@ def cast_to_dtype(object: Any, module: str, **kwargs):
     if not module in MODULES:
         raise ValueError(f"{module} is not a valid module")
     return get_module_attr(module, MODULE_TYPECAST[module])(object, **kwargs)
+
+
+def deepgetattr(obj: ModuleType, attr: str):
+    return reduce(getattr, attr.split("."), obj)
 
 
 def get_module_dtype(module: str) -> Any:
@@ -45,7 +50,7 @@ def get_module_from_objects(objects: Iterable[Any], default: str) -> str:
 
 def get_module_attr(module: str, attr: str) -> Any:
     """Returns the attr associated with the module"""
-    return getattr(get_module(module), attr)
+    return deepgetattr(get_module(module), attr)
 
 
 def get_module(module: str) -> ModuleType:
