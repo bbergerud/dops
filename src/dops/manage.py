@@ -3,14 +3,14 @@ import importlib.util
 from types import ModuleType
 from typing import Any, Iterable, Union
 
-module_type = {
-    "numpy": lambda: get_module_attr("numpy", "ndarray"),
-    "torch": lambda: get_module_attr("torch", "Tensor"),
+MODULE_DTYPE = {
+    "numpy": "ndarray",
+    "torch": "Tensor",
 }
 
-module_typecast = {
-    "numpy": lambda: get_module_attr("numpy", "asarray"),
-    "torch": lambda: get_module_attr("torch", "as_tensor"),
+MODULE_TYPECAST = {
+    "numpy": "asarray",
+    "torch": "as_tensor",
 }
 
 
@@ -18,13 +18,13 @@ def cast_to_dtype(object: Any, module: str, **kwargs):
     """Casts the object to the basic data type associated with the module"""
     if not module in MODULES:
         raise ValueError(f"{module} is not a valid module")
-    return module_typecast[module]()(object, **kwargs)
+    return get_module_attr(module, MODULE_TYPECAST[module])(object, **kwargs)
 
 
-def get_module_type(module: str) -> Any:
+def get_module_dtype(module: str) -> Any:
     if not module in MODULES:
         raise Exception(f"{module} not a valid module")
-    return module_type[module]()
+    return get_module_attr(module, MODULE_DTYPE[module])
 
 
 def get_module_from_object(object: Any, default: str) -> str:
@@ -66,17 +66,17 @@ def is_module_dtype(object: Any, module: str) -> bool:
     """Determines if the object is an instance of the module"""
     if not module in MODULES:
         raise Exception(f"{module} not a valid module")
-    return isinstance(object, get_module_type(module))
+    return isinstance(object, get_module_dtype(module))
 
 
 DEFAULT_MODULE = None
 MODULES = []
-for module, dtype in module_type.items():
+for module, dtype in MODULE_DTYPE.items():
     if is_module_installed(module):
         if DEFAULT_MODULE is None:
             DEFAULT_MODULE = module
         importlib.import_module(module)
         MODULES.append(module)
 
-TYPEHINT_DTYPE = Union[tuple(get_module_type(module) for module in MODULES)]
+TYPEHINT_DTYPE = Union[tuple(get_module_dtype(module) for module in MODULES)]
 TYPEHINT_MODULE = Union[tuple(MODULES)]
