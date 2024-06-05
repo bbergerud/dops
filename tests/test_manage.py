@@ -4,8 +4,8 @@ from dops.manage import (
     cast_to_dtype,
     get_module,
     get_module_attr,
+    get_module_dtype,
     get_module_from_object,
-    get_module_type,
     is_module_dtype,
     is_module_installed,
 )
@@ -21,7 +21,7 @@ def test_get_module():
 
 
 def test_get_module_type():
-    dtype = get_module_type("torch")
+    dtype = get_module_dtype("torch")
     assert dtype == torch.Tensor
 
 
