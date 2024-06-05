@@ -1,9 +1,7 @@
 import math
 
-import torch
-
-from dops import trig
-from dops.manage import MODULE_TYPECAST, cast_to_dtype
+from tenops import trig
+from tenops.manage import MODULE_TYPECAST, cast_to_dtype
 
 
 def test_angle():

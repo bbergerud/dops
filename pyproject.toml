@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dops"
+name = "tenops"
 version = "0.1.0"
 license = "MIT"
 description = "Python package for creating a common interface for using numpy, pytorch, etc."

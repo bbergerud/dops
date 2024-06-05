@@ -1,7 +1,5 @@
-import torch
-
-from dops import special
-from dops.manage import MODULE_TYPECAST, cast_to_dtype
+from tenops import special
+from tenops.manage import MODULE_TYPECAST, cast_to_dtype
 
 
 def test_exp():

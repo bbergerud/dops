@@ -1,4 +1,4 @@
-from dops.utils import ParameterAlias
+from tenops.utils import ParameterAlias
 
 
 def test_Parameter():
