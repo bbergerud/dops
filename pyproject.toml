@@ -4,6 +4,7 @@ version = "0.1.0"
 license = "MIT"
 description = "Python package for creating a common interface for using numpy, pytorch, etc."
 authors = ["Brandon Bergerud <brandon.bergerud@gmail.com>"]
+repository = "https://github.com/bbergerud/tenops"
 readme = "readme.md"
 
 [tool.poetry.dependencies]
