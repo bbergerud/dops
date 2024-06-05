@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
       - name: Install Poetry
         run: pipx install poetry
-      - name: Set up python ${{ natrix.python-version }}
+      - name: Set up python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
