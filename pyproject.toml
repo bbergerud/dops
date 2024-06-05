@@ -21,6 +21,9 @@ torch = "^2.3.0"
 numpy = "^1.26.4"
 tensorflow = "^2.16.1"
 
+[tool.poetry.group.dev.dependencies]
+python-semantic-release = "^9.8.1"
+
 [tool.semantic_release]
 version_variable = "pyproject.toml:version"
 branch = "main"
