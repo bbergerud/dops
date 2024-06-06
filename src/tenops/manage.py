@@ -85,5 +85,10 @@ for module, dtype in MODULE_DTYPE.items():
         importlib.import_module(module)
         MODULES.append(module)
 
+if DEFAULT_MODULE is None:
+    raise AttributeError(
+        f"Please install at least one of the following modules: {[x for x in MODULE_DTYPE.keys()]}"
+    )
+
 TYPEHINT_DTYPE = Union[tuple(get_module_dtype(module) for module in MODULES)]
 TYPEHINT_MODULE = Union[tuple(MODULES)]

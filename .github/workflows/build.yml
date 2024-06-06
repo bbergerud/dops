@@ -1,13 +1,12 @@
-name: data operations
+name: tenops (tensor operations)
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
-
-  # be able to run workflow manually
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   build:
@@ -79,3 +78,8 @@ jobs:
           user: __token__
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository-url: https://test.pypi.org/legacy/
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
