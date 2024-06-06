@@ -26,7 +26,7 @@ tensorflow = "^2.16.1"
 python-semantic-release = "^9.8.1"
 
 [tool.semantic_release]
-version_variable = "pyproject.toml:version"
+version_toml = ["pyproject.toml:tool.poetry.version"]
 branch = "main"
 changelog_file = "CHANGELOG.md"
 build_command = "poetry build"
@@ -35,3 +35,19 @@ upload_to_release = true
 upload_to_pypi = false
 remove_dist = false
 patch_without_tag = true
+
+[tool.semantic_release.commit_parser_options]
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "style",
+    "refactor",
+    "test",
+]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
