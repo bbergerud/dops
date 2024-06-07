@@ -73,6 +73,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Semantic release results
+        run: echo "semantic release - ${{ steps.semantic.outputs.released }}"
+
       - name: Build package
         if: steps.semantic.outputs.released == 'true'
         env:
