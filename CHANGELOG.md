@@ -2,6 +2,19 @@
 
 
 
+## v0.2.0 (2024-06-07)
+
+### Feature
+
+* feat: added DEFAULT_MODULE import ([`5bdfbb6`](https://github.com/bbergerud/tenops/commit/5bdfbb68840d374f4f5daa7d878e0b16ee17713e))
+
+### Unknown
+
+* Merge pull request #30 from bbergerud/default_module_import
+
+feat: added DEFAULT_MODULE import ([`cf4dd0c`](https://github.com/bbergerud/tenops/commit/cf4dd0c00b7afcce7e5dcff7950c11f892f5b591))
+
+
 ## v0.1.1 (2024-06-07)
 
 ### Documentation
