@@ -1,7 +1,7 @@
 [tool.poetry]
 package-mode = true
 name = "tenops"
-version = "0.0.1"
+version = "0.1.0"
 license = "MIT"
 description = "Python package for creating a common interface for using numpy, pytorch, etc."
 authors = ["Brandon Bergerud <brandon.bergerud@gmail.com>"]

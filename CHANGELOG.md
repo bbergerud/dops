@@ -2,6 +2,19 @@
 
 
 
+## v0.1.0 (2024-06-07)
+
+### Feature
+
+* feat: added __init__ imports ([`c3dc18a`](https://github.com/bbergerud/tenops/commit/c3dc18adf60a36a3db4fac3f60d334baf505b2cc))
+
+### Unknown
+
+* Merge pull request #27 from bbergerud/add_init_imports
+
+feat: added __init__ imports ([`9fa498c`](https://github.com/bbergerud/tenops/commit/9fa498ca915707e3926c8f33505b61dd3794f299))
+
+
 ## v0.0.1 (2024-06-07)
 
 ### Build
