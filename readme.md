@@ -2,6 +2,17 @@
 
 The basic idea behind this repository is to allow for seamlessly switching between libraries like numpy, pytorch, and tensorflow by checking the input types and returning the proper function for use in some operation.
 
+## Installation
+Installation can be done over pip
+```
+pip install tenops
+```
+
+Note that for the library to work you'll need to have at least one of the following libraries installed:
+- numpy
+- torch
+- tensorflow
+
 ## Usage
 
 Functions work like regular functions, one just needs to pass in the object and the function will identify the corresponding module and use the appropriate function:
