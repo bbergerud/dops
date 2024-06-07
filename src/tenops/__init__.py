@@ -10,7 +10,7 @@ from .grid import (
     stack,
     zeros_like,
 )
-from .manage import TYPEHINT_DTYPE, TYPEHINT_MODULE
+from .manage import DEFAULT_MODULE, TYPEHINT_DTYPE, TYPEHINT_MODULE
 from .reduce import all, reduce_all
 from .special import exp, log
 from .trig import angle, arctan, arctan2, atan, atan2, cos, sin, tan
