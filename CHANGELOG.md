@@ -14,6 +14,12 @@
 
 ### Ci
 
+* ci: echo semantic release results ([`4747c09`](https://github.com/bbergerud/tenops/commit/4747c09a26c23ad8cc3c356421373abebf5d7b03))
+
+* ci: add workflow dispatch option ([`04d08d3`](https://github.com/bbergerud/tenops/commit/04d08d30868a25d97b139c555415bf52d4c3e0c2))
+
+* ci: changed new_release_published to released ([`44862ff`](https://github.com/bbergerud/tenops/commit/44862ff60039d20c713f8e814be95bb63d6523e5))
+
 * ci: added permission for semantic release ([`4e59799`](https://github.com/bbergerud/tenops/commit/4e59799a1917af36b3b24682456a0e655300c34e))
 
 * ci: removed semantic-release dev dependency and updated semantic-release config ([`8fa0e74`](https://github.com/bbergerud/tenops/commit/8fa0e74929e2ce5df88eabc5205b3a2e5c2b6636))
@@ -39,6 +45,18 @@
 * test: added poetry build before publish ([`b1f259e`](https://github.com/bbergerud/tenops/commit/b1f259ec6548780d09f930bb41ebe2b5654d06b6))
 
 ### Unknown
+
+* Merge pull request #26 from bbergerud/dispatch
+
+ci: echo semantic release results ([`8e05e1c`](https://github.com/bbergerud/tenops/commit/8e05e1cb843d9825a2567e110b3e56ff86f6c055))
+
+* Merge pull request #25 from bbergerud/dispatch
+
+ci: add workflow dispatch option ([`4f7b514`](https://github.com/bbergerud/tenops/commit/4f7b5145126e7726b99894f56fe37806e3d11864))
+
+* Merge pull request #24 from bbergerud/pypi_workflow
+
+ci: changed new_release_published to released ([`481345f`](https://github.com/bbergerud/tenops/commit/481345f3708507c93d0abb39d6910561064151b2))
 
 * Merge pull request #23 from bbergerud/pypi_workflow
 
