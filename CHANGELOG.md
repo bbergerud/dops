@@ -2,6 +2,27 @@
 
 
 
+## v0.1.1 (2024-06-07)
+
+### Documentation
+
+* docs: add install info to readme ([`a779073`](https://github.com/bbergerud/tenops/commit/a779073a2ce5ad459c4f35728f1c071f1a476723))
+
+### Fix
+
+* fix: add typehints to imports ([`27bd948`](https://github.com/bbergerud/tenops/commit/27bd948e7accf2e73e7b73b9de99f6ff96054d59))
+
+### Unknown
+
+* Merge pull request #29 from bbergerud/typehint_import
+
+fix: add typehints to imports ([`07c1da7`](https://github.com/bbergerud/tenops/commit/07c1da787279b6734e3a016fb51aeb3f55982f40))
+
+* Merge pull request #28 from bbergerud/add_init_imports
+
+fix: updated readme and using fix to upload to testpypi ([`f251325`](https://github.com/bbergerud/tenops/commit/f2513252bdf681a9db3c7a86254fe1cb04faf38d))
+
+
 ## v0.1.0 (2024-06-07)
 
 ### Feature
