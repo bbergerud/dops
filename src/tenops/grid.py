@@ -1,4 +1,3 @@
-from collections import defaultdict
 from typing import Iterable, Union
 
 from .manage import (
@@ -10,15 +9,14 @@ from .manage import (
     get_module_from_object,
     get_module_from_objects,
 )
-from .utils import ParameterHandler
+from .utils import AttrHandler, ParameterHandler
 
 
 def arange(
     *args: int, default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "arange")
-    d["tensorflow"] = "range"
-    return get_module_attr(default, d[default])(*args, **kwargs)
+    a = AttrHandler("arange", tensorflow="range")
+    return get_module_attr(default, a[default])(*args, **kwargs)
 
 
 def cat(
@@ -27,30 +25,27 @@ def cat(
     axis: int = 0,
     **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "concatenate")
-    d.update({"torch": "cat", "tensorflow": "concat"})
-
+    a = AttrHandler("concat", numpy="concatenate")
     p = ParameterHandler(params={"axis": axis}, axis={"torch": "dim"})
     module = get_module_from_objects(x, default=default)
     x = [cast_to_dtype(xi, module=module) for xi in x]
-    return get_module_attr(module, d[module])(x, **p[module], **kwargs)
+    return get_module_attr(module, a[module])(x, **p[module], **kwargs)
 
 
 def empty_like(
     x: TYPEHINT_DTYPE, default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "empty_like")
-    d["tensorflow"] = "experimental.numpy.empty_like"
+    a = AttrHandler("empty_like", tensorflow="experimental.numpy.empty_like")
     module = get_module_from_object(x, default=default)
     x = cast_to_dtype(x, module=module)
-    return get_module_attr(module, d[module])(x, **kwargs)
+    return get_module_attr(module, a[module])(x, **kwargs)
 
 
 def linspace(
     *args: Union[int, float], default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "linspace")
-    return get_module_attr(default, d[default])(*args, **kwargs)
+    a = AttrHandler("linspace")
+    return get_module_attr(default, a[default])(*args, **kwargs)
 
 
 def meshgrid(
@@ -59,11 +54,11 @@ def meshgrid(
     default: TYPEHINT_MODULE = DEFAULT_MODULE,
     **kwargs
 ) -> tuple[TYPEHINT_DTYPE]:
-    d = defaultdict(lambda: "meshgrid")
+    a = AttrHandler("meshgrid")
     p = ParameterHandler(params={"indexing": indexing})
     module = get_module_from_objects(x, default=default)
     x = [cast_to_dtype(xi, module=module) for xi in x]
-    return get_module_attr(module, d[module])(*x, **p[module], **kwargs)
+    return get_module_attr(module, a[module])(*x, **p[module], **kwargs)
 
 
 def reshape(
@@ -72,33 +67,33 @@ def reshape(
     default: TYPEHINT_MODULE = DEFAULT_MODULE,
     **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "reshape")
+    a = AttrHandler("reshape")
     p = ParameterHandler(params={"shape": shape}, shape={"numpy": "newshape"})
     module = get_module_from_object(x, default=default)
     x = cast_to_dtype(x, module=module)
-    return get_module_attr(module, d[module])(x, **p[module], **kwargs)
+    return get_module_attr(module, a[module])(x, **p[module], **kwargs)
 
 
 def stack(
     x: Iterable[TYPEHINT_DTYPE],
     default: TYPEHINT_MODULE = DEFAULT_MODULE,
-    axis: int = 1,
+    axis: int = 0,
     **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "stack")
+    a = AttrHandler("stack")
     p = ParameterHandler(params={"axis": axis}, axis={"torch": "dim"})
     module = get_module_from_objects(x, default=default)
     x = [cast_to_dtype(xi, module=module) for xi in x]
-    return get_module_attr(module, d[module])(x, **p[module], **kwargs)
+    return get_module_attr(module, a[module])(x, **p[module], **kwargs)
 
 
 def zeros_like(
     x: TYPEHINT_DTYPE, default: TYPEHINT_MODULE = DEFAULT_MODULE, **kwargs
 ) -> TYPEHINT_DTYPE:
-    d = defaultdict(lambda: "zeros_like")
+    a = AttrHandler("zeros_like")
     module = get_module_from_object(x, default=default)
     x = cast_to_dtype(x, module=module)
-    return get_module_attr(module, d[module])(x, **kwargs)
+    return get_module_attr(module, a[module])(x, **kwargs)
 
 
 # Alias
