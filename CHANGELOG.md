@@ -2,6 +2,21 @@
 
 
 
+## v0.3.0 (2024-06-09)
+
+### Feature
+
+* feat: added new functions; utilized AttrHandler ([`cd26f38`](https://github.com/bbergerud/tenops/commit/cd26f384d8b10c39d7b7ac9d2bcd19e85b0d4d7f))
+
+* feat: created attr and module handlers; renamed parameter handler ([`d4c876b`](https://github.com/bbergerud/tenops/commit/d4c876b63863cef5d74fe623947c9f2d09110f51))
+
+### Unknown
+
+* Merge pull request #31 from bbergerud/trig_funcs
+
+Trig funcs ([`50a0685`](https://github.com/bbergerud/tenops/commit/50a06859c23ebab202181961fc48c79525b7f277))
+
+
 ## v0.2.0 (2024-06-07)
 
 ### Feature
