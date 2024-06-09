@@ -2,7 +2,30 @@ from collections import defaultdict
 from typing import Any
 
 
-class ParameterAlias:
+class AttrHandler:
+    def __init__(self, default: str, **kwargs):
+        self.default = default
+        self.dict = kwargs
+
+    def __getitem__(self, module: str):
+        if module in self.dict:
+            return self.dict[module]
+        else:
+            return self.default
+
+
+class ModuleHandler:
+    def __init__(self, **kwargs):
+        self.dict = kwargs
+
+    def __getitem__(self, module: str):
+        if module in self.dict:
+            return self.dict[module]
+        else:
+            return module
+
+
+class ParameterHandler:
     """
     Class for transforming parameter names to the appropriate name for a module.
 
@@ -10,7 +33,6 @@ class ParameterAlias:
     ----------
     params : dict[str, Any]
         A dictionary containing the key-value pairs for the function.
-
 
     **kwargs : dict[str,str]
         Arguments where the keyword is the parameter name and the value a dictionary
@@ -24,8 +46,10 @@ class ParameterAlias:
     --------
     >>> from dops.utils import Parameter
     >>> p = Parameter(params={"axis": 0}, axis={"torch": "dim"})
+    >>> p["numpy"]
+    {"axis": 0}
     >>> p["torch"]
-    {"dim": 1}
+    {"dim": 0}
     """
 
     def __init__(self, params: dict[str, Any], **kwargs: dict[str, str]):

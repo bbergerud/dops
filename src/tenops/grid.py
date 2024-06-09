@@ -10,7 +10,7 @@ from .manage import (
     get_module_from_object,
     get_module_from_objects,
 )
-from .utils import ParameterAlias
+from .utils import ParameterHandler
 
 
 def arange(
@@ -30,7 +30,7 @@ def cat(
     d = defaultdict(lambda: "concatenate")
     d.update({"torch": "cat", "tensorflow": "concat"})
 
-    p = ParameterAlias(params={"axis": axis}, axis={"torch": "dim"})
+    p = ParameterHandler(params={"axis": axis}, axis={"torch": "dim"})
     module = get_module_from_objects(x, default=default)
     x = [cast_to_dtype(xi, module=module) for xi in x]
     return get_module_attr(module, d[module])(x, **p[module], **kwargs)
@@ -60,7 +60,7 @@ def meshgrid(
     **kwargs
 ) -> tuple[TYPEHINT_DTYPE]:
     d = defaultdict(lambda: "meshgrid")
-    p = ParameterAlias(params={"indexing": indexing})
+    p = ParameterHandler(params={"indexing": indexing})
     module = get_module_from_objects(x, default=default)
     x = [cast_to_dtype(xi, module=module) for xi in x]
     return get_module_attr(module, d[module])(*x, **p[module], **kwargs)
@@ -73,7 +73,7 @@ def reshape(
     **kwargs
 ) -> TYPEHINT_DTYPE:
     d = defaultdict(lambda: "reshape")
-    p = ParameterAlias(params={"shape": shape}, shape={"numpy": "newshape"})
+    p = ParameterHandler(params={"shape": shape}, shape={"numpy": "newshape"})
     module = get_module_from_object(x, default=default)
     x = cast_to_dtype(x, module=module)
     return get_module_attr(module, d[module])(x, **p[module], **kwargs)
@@ -86,7 +86,7 @@ def stack(
     **kwargs
 ) -> TYPEHINT_DTYPE:
     d = defaultdict(lambda: "stack")
-    p = ParameterAlias(params={"axis": axis}, axis={"torch": "dim"})
+    p = ParameterHandler(params={"axis": axis}, axis={"torch": "dim"})
     module = get_module_from_objects(x, default=default)
     x = [cast_to_dtype(xi, module=module) for xi in x]
     return get_module_attr(module, d[module])(x, **p[module], **kwargs)
