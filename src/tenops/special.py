@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 from .manage import (
     DEFAULT_MODULE,
     TYPEHINT_DTYPE,
