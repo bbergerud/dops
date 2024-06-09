@@ -10,7 +10,19 @@
 
 * feat: created attr and module handlers; renamed parameter handler ([`d4c876b`](https://github.com/bbergerud/tenops/commit/d4c876b63863cef5d74fe623947c9f2d09110f51))
 
+### Refactor
+
+* refactor: changed defaultdict to AttrHandler ([`4a95f0a`](https://github.com/bbergerud/tenops/commit/4a95f0a4c0f3690f31ba6687410b9e4b81f1e1e2))
+
+* refactor: changed defaultdict to AttrHandler ([`4112774`](https://github.com/bbergerud/tenops/commit/4112774b0c01357c2d753e6df60d24d381d7a34c))
+
 ### Unknown
+
+* Merge pull request #32 from bbergerud/attr_handler
+
+refactor: changed defaultdict to AttrHandler ([`c75834b`](https://github.com/bbergerud/tenops/commit/c75834bf5c3e20de98066756fec9178988db2794))
+
+* removed unused import ([`8ce189d`](https://github.com/bbergerud/tenops/commit/8ce189d665fa5668a87050bb8af960fe9cc2186b))
 
 * Merge pull request #31 from bbergerud/trig_funcs
 
